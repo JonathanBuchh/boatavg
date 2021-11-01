@@ -1,0 +1,11 @@
+html {
+  line-height:1.6;
+  max-width: 70ch;
+  margin: auto;
+  font-family:-apple-system, BlinkMacSystemFont, Helvetica, sans-serif;
+  padding: 0 20px;
+}
+
+input:invalid {
+  border: red solid;
+}
