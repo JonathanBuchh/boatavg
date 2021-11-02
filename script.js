@@ -49,15 +49,15 @@ function defineBoatClass(data) {
 
 function calculate(data) {
     if (size == 2) {
-        totalTime = getMilliseconds(erg2.value) + getMilliseconds(erg1.value);
+        totalTime = (getMilliseconds(erg2.value) + getMilliseconds(erg1.value))/size;
     } else if (size == 4) {
-        totalTime = getMilliseconds(erg4.value) + getMilliseconds(erg3.value) + getMilliseconds(erg2.value) + getMilliseconds(erg1.value);
+        totalTime = (getMilliseconds(erg4.value) + getMilliseconds(erg3.value) + getMilliseconds(erg2.value) + getMilliseconds(erg1.value))/size;
     } else if (size == 8) {
-        totalTime = getMilliseconds(erg8.value) + getMilliseconds(erg7.value) + getMilliseconds(erg6.value) + getMilliseconds(erg5.value) + getMilliseconds(erg4.value) + getMilliseconds(erg3.value) + getMilliseconds(erg2.value) + getMilliseconds(erg1.value);
+        totalTime = (getMilliseconds(erg8.value) + getMilliseconds(erg7.value) + getMilliseconds(erg6.value) + getMilliseconds(erg5.value) + getMilliseconds(erg4.value) + getMilliseconds(erg3.value) + getMilliseconds(erg2.value) + getMilliseconds(erg1.value))/size;
     }
-    min = Math.floor((totalTime/size)/600);
-    sec = Math.floor(((totalTime/size)-min*600)/10);
-    millisec = Math.round((totalTime/size)%10);
+    min = Math.floor(totalTime/600);
+    sec = Math.floor((totalTime-min*600)/10);
+    millisec = Math.round(totalTime%10);
     output = min + ":" + sec + "." + millisec;
     if (submitted == false) {
         submitted = true;
