@@ -10,8 +10,8 @@ function defineBoatClass(data) {
             parent.firstChild.remove()
         }
         parent.innerHTML = `<ol reversed>
-        <li><input type=text id=erg2 placeholder="5:59.9" pattern="[1-9]:[0-6][0-9]\.[0-9]" required></li>
-        <li><input type=text id=erg1 placeholder="5:59.9" pattern="[1-9]:[0-6][0-9]\.[0-9]" required></li>
+        <li><input type=text id=erg2 placeholder="5:59.9" pattern="[1-9]:[0-6][0-9]\\.[0-9]" required></li>
+        <li><input type=text id=erg1 placeholder="5:59.9" pattern="[1-9]:[0-6][0-9]\\.[0-9]" required></li>
         </ol>
         <button id=submit>Calculate!</button>`
     } else if (data.value == 4) {
@@ -21,10 +21,10 @@ function defineBoatClass(data) {
             parent.firstChild.remove();
         }
         parent.innerHTML = `<ol reversed>
-            <li><input type=text id=erg4 placeholder="5:59.9" pattern="[1-9]:[0-6][0-9]\.[0-9]" required></li>
-            <li><input type=text id=erg3 placeholder="5:59.9" pattern="[1-9]:[0-6][0-9]\.[0-9]" required></li>
-            <li><input type=text id=erg2 placeholder="5:59.9" pattern="[1-9]:[0-6][0-9]\.[0-9]" required></li>
-            <li><input type=text id=erg1 placeholder="5:59.9" pattern="[1-9]:[0-6][0-9]\.[0-9]" required></li>
+            <li><input type=text id=erg4 placeholder="5:59.9" pattern="[1-9]:[0-6][0-9]\\.[0-9]" required></li>
+            <li><input type=text id=erg3 placeholder="5:59.9" pattern="[1-9]:[0-6][0-9]\\.[0-9]" required></li>
+            <li><input type=text id=erg2 placeholder="5:59.9" pattern="[1-9]:[0-6][0-9]\\.[0-9]" required></li>
+            <li><input type=text id=erg1 placeholder="5:59.9" pattern="[1-9]:[0-6][0-9]\\.[0-9]" required></li>
         </ol>
         <button id=submit>Calculate!</button>`
     } else if (data.value == 8) {
@@ -34,14 +34,14 @@ function defineBoatClass(data) {
             parent.firstChild.remove();
         }
         parent.innerHTML = `<ol reversed>
-            <li><input type=text id=erg8 placeholder="5:59.9" pattern="[1-9]:[0-6][0-9]\.[0-9]" required></li>
-            <li><input type=text id=erg7 placeholder="5:59.9" pattern="[1-9]:[0-6][0-9]\.[0-9]" required></li>
-            <li><input type=text id=erg6 placeholder="5:59.9" pattern="[1-9]:[0-6][0-9]\.[0-9]" required></li>
-            <li><input type=text id=erg5 placeholder="5:59.9" pattern="[1-9]:[0-6][0-9]\.[0-9]" required></li>
-            <li><input type=text id=erg4 placeholder="5:59.9" pattern="[1-9]:[0-6][0-9]\.[0-9]" required></li>
-            <li><input type=text id=erg3 placeholder="5:59.9" pattern="[1-9]:[0-6][0-9]\.[0-9]" required></li>
-            <li><input type=text id=erg2 placeholder="5:59.9" pattern="[1-9]:[0-6][0-9]\.[0-9]" required></li>
-            <li><input type=text id=erg1 placeholder="5:59.9" pattern="[1-9]:[0-6][0-9]\.[0-9]" required></li>
+            <li><input type=text id=erg8 placeholder="5:59.9" pattern="[1-9]:[0-6][0-9]\\.[0-9]" required></li>
+            <li><input type=text id=erg7 placeholder="5:59.9" pattern="[1-9]:[0-6][0-9]\\.[0-9]" required></li>
+            <li><input type=text id=erg6 placeholder="5:59.9" pattern="[1-9]:[0-6][0-9]\\.[0-9]" required></li>
+            <li><input type=text id=erg5 placeholder="5:59.9" pattern="[1-9]:[0-6][0-9]\\.[0-9]" required></li>
+            <li><input type=text id=erg4 placeholder="5:59.9" pattern="[1-9]:[0-6][0-9]\\.[0-9]" required></li>
+            <li><input type=text id=erg3 placeholder="5:59.9" pattern="[1-9]:[0-6][0-9]\\.[0-9]" required></li>
+            <li><input type=text id=erg2 placeholder="5:59.9" pattern="[1-9]:[0-6][0-9]\\.[0-9]" required></li>
+            <li><input type=text id=erg1 placeholder="5:59.9" pattern="[1-9]:[0-6][0-9]\\.[0-9]" required></li>
         </ol>
         <button id=submit>Calculate!</button>`
     }
