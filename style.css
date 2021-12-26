@@ -11,7 +11,7 @@ a {
 }
 
 input:invalid {
-  border: red solid;
+  border: 1px red solid;
 }
 
 .hide {
