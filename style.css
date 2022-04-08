@@ -6,6 +6,19 @@ html {
   padding: 0 20px;
 }
 
+ol {
+  counter-reset: item;
+  list-style: none;
+  padding-left: 0px;
+}
+li {
+  display: block;
+}
+li:before {
+  content: counters(item, ".") ". ";
+  counter-increment: item;
+}
+
 a {
   color:#000
 }
