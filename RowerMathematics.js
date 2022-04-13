@@ -1,6 +1,6 @@
 //Jack Blair 4/12/22
 
-//Script to calculate the weight adjusted 2K of a rower in the sport of rowing.
+//Backend code to calculate the weight adjusted 2K of a rower in the sport of rowing.
 //A Rower object stores the rowers 2k time and weight.
 //At some point can be exanded to estimate other metrics based on certain pieces
 
