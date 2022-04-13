@@ -2,13 +2,6 @@
 
 Easily calculate the average 2k of your boat
 
-## Possible improvements
-
-- [ ] Allow for times without decimal
-- [ ] Alert user of problem when input doesn't match regex
-
-
-
 ## Weight Adjusted Formula
 
 Here are the formulas used in the weight adjusted calculations:
