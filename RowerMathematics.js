@@ -63,26 +63,6 @@ class Rower {
         return this.twoKTime * this.weightFactor;
     }
 
-    splitOf(time, distance, splitLength = 500){
-      //Time argument must be less than 1 hour
-
-      if(typeof(time) == "string"){
-        time = parseTime(time);
-      }
-      else if(typeof(time) == "number"){
-        time = time;
-      }
-      else{
-        return null;
-      }
-
-      if(typeof(distance) == "string"){
-        return null;
-      }
-
-
-      return formatTime(time/distance*splitLength);
-    }
 }
 
 //method to parse 2k time (formatted as mm:ss.sss) into milliseconds
@@ -125,6 +105,49 @@ function formatTime(time) {
     }
 }
 
+function splitOf(time, distance, splitLength = 500){
+  //Time argument must be less than 1 hour
+
+  if(typeof(time) == "string"){
+    time = parseTime(time);
+  }
+  else if(typeof(time) == "number"){
+    time = time;
+  }
+  else{
+    return null;
+  }
+
+  if(typeof(distance) == "string"){
+    return null;
+  }
+
+
+  return time/distance*splitLength;
+}
+
+//Paul's Law says that for a rowing athlete with balanced speed and endurance capabilities, 
+//for every doubling of distance the 500m split should increase by five seconds. 
+//The form below calculates Paul's Law predicted target times based on a known result.
+
+//In slightly more formal terms, to figure out your predicted split in seconds (p1) for any given distance (d1), based on a split in seconds (p2) over another distance (d2), apply the formula:
+
+function paulsLawSplit(initialDistance, time, newDistance, splitLength = 500){
+    //initialDistance is in meters
+    //time is in milliseconds
+    //newDistance is in meters
+
+    splitTime = splitOf(time, initialDistance, splitLength);
+    deltaTime = 5000* Math.log2(newDistance/initialDistance);
+    return (splitTime + deltaTime);
+}
+
+function paulsLawPiece(initialDistance, time, newDistance){
+  splitLength = 500;
+  return paulsLawSplit(initialDistance, time, newDistance, splitLength) * newDistance / splitLength;
+}
+
+
 
 //Example Uses cases for the Rower class
 
@@ -136,7 +159,7 @@ Jack.set2K(parseTime(Jack2K));
 Jack.setWeight(146);
 console.log("Jack's Weighted 2K Time: " + formatTime(Jack.weightAdjusted2K));
 console.log("Jack's Weight Factor: " + Jack.weightFactor);
-console.log("Jack's Split during a 2K: " + Jack.splitOf(Jack.twoKTime, 2000));
+console.log("Jack's Split during a 2K: " + formatTime(splitOf(Jack.twoKTime, 2000)));
 
 //Dermot
 let Dermot = new Rower();
@@ -146,17 +169,31 @@ Dermot.set2K(parseTime(Dermot2K));
 Dermot.setWeight(180);
 console.log("Dermot's Weighted 2K Time: " + formatTime(Dermot.weightAdjusted2K));
 console.log("Dermot's Weight Factor: " + Dermot.weightFactor);
-console.log("Dermot's Split during a 2K: " + Dermot.splitOf("7:09.4", 2000)); //SplitOf can be given a time in any format
+console.log("Dermot's Split during a 2K: " + formatTime(splitOf("7:09.4", 2000))); //SplitOf can be given a time in any format
 
-//Zach
-let Zach = new Rower();
-let Zach2K = "9:35.8";
-console.log("Zach's 2K time: " + Zach2K);
-Zach.set2K(parseTime(Zach2K));
-Zach.setWeight(35); //Zach is a bit light (coxswain most likely)
-console.log("Zach's Weighted 2K Time: " + formatTime(Zach.weightAdjusted2K));
-console.log("Zach's Weight Factor: " + Zach.weightFactor);
-console.log("Zach's Split during a 2K: " + Zach.splitOf(Zach.twoKTime, 2000));
+//Zac
+let Zac = new Rower();
+let Zac2K = "8:11.8";
+console.log("Zach's 2K time: " + Zac2K);
+Zac.set2K(parseTime(Zac2K));
+Zac.setWeight(120); //Zach is a bit light (coxswain most likely)
+console.log("Zach's Weighted 2K Time: " + formatTime(Zac.weightAdjusted2K));
+console.log("Zach's Weight Factor: " + Zac.weightFactor);
+console.log("Zach's Split during a 2K: " + formatTime(splitOf(Zac.twoKTime, 2000)));
+
+//Test Paul's Law
+console.log("Testing on 2K Time of 7:22.4");
+console.log("500m split: " + formatTime(paulsLawSplit(2000, parseTime("7:22.4"), 500)));
+console.log("500m Time: " + formatTime(paulsLawPiece(2000, parseTime("7:22.4"), 500)));
+console.log("1000m split: " + formatTime(paulsLawSplit(2000, parseTime("7:22.4"), 1000)));
+console.log("1000m Time: " + formatTime(paulsLawPiece(2000, parseTime("7:22.4"), 1000)));
+console.log("2000m split: " + formatTime(paulsLawSplit(2000, parseTime("7:22.4"), 2000)));
+console.log("2000m Time: " + formatTime(paulsLawPiece(2000, parseTime("7:22.4"), 2000)));
+console.log("5000m split: " + formatTime(paulsLawSplit(2000, parseTime("7:22.4"), 5000)));
+console.log("5000m Time: " + formatTime(paulsLawPiece(2000, parseTime("7:22.4"), 5000)));
+console.log("10000m split: " + formatTime(paulsLawSplit(2000, parseTime("7:22.4"), 10000)));
+console.log("10000m Time: " + formatTime(paulsLawPiece(2000, parseTime("7:22.4"), 10000)));
+
 
 
 
