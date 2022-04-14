@@ -12,14 +12,12 @@
     <script src=RowerMathematics.js></script>
     <h1>Boat Erg Average Calculator</h1>
     <label for=boat>Size of your boat: </label>
-    <form>
-      <input type="number" placeholder="Boat size..." id="boatSize" onchange="defineBoatClass(this)" list="cars">
-      <datalist id="cars">
-        <option>2</option>
-        <option>4</option>
-        <option>8</option>
-      </datalist>
-    </form>
+    <select name=boat id=boat onchange=defineBoatClass(this) autocomplete=off>
+      <option value=1>1</option>
+      <option value=2>2</option>
+      <option value=4>4</option>
+      <option value=8 selected=selected>8</option>
+    </select>
 
     <form action=javascript:calculate(this) id=form>
       <ol reversed>
