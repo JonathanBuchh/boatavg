@@ -22,9 +22,6 @@ function calculate(data) {
     totalTime = totalTime/size
     min = Math.floor(totalTime/600);
     sec = Math.floor((totalTime-min*600)/10);
-    if (sec < 10) {
-        sec = "0" + sec;
-    }
     millisec = Math.round(totalTime%10);
     output = min + ":" + sec + "." + millisec;
     if (submitted == false) {
